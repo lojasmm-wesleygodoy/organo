@@ -13,19 +13,19 @@ const Formulario = ({aoCadastrar, times}) => {
 
     const aoSubmeter = (evento) => {
         evento.preventDefault()
-        console.log('form enviado', nome, cargo, imagem, time )
+        
         aoCadastrar({
             nome,
             cargo,
             imagem,
-            time
+            time: "Programação"
         })
     }
 
     return (
         <section className="formulario-container">
             <form className="formulario" onSubmit={aoSubmeter}>
-                <h2>Preencha os dados para criar o card do colaborador.</h2>
+                <h2>Preencha os dados para cadastrar um carro estacionado.</h2>
                 <CampoTexto
                     obrigatorio={true}
                     label='Nome'
@@ -34,21 +34,21 @@ const Formulario = ({aoCadastrar, times}) => {
                     aoAlterado={valor => setNome(valor)}/>
                 <CampoTexto
                     obrigatorio={true}
-                    label='Cargo' 
-                    placeholder='Digite seu cargo '
+                    label='Carro' 
+                    placeholder='Digite o carro '
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}/>
                 <CampoTexto 
-                    label='Imagem' 
-                    placeholder='Informe o endereço da imagem '
+                    label='Placa do Carro' 
+                    placeholder='Digite a placa do carro'
                     aoAlterado={valor => setImagem(valor)}/>
-                <ListaSuspensa 
+                {/* <ListaSuspensa 
                     obrigatorio={true}
                     label='Times'
                     items={times} 
                     valor={time}
-                    aoAlterado={valor => setTime(valor)}/>
-                <Botao texto='Criar card' />
+                    aoAlterado={valor => setTime(valor)}/> */}
+                <Botao texto='Estacionar' />
             </form>
         </section>
     )
